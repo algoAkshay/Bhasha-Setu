@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: bhasha-setu
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/bhashasetu}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+server:
+  port: ${PORT:8000}
+bhashasetu:
+  session-ttl-seconds: ${SESSION_TTL_SECONDS:1800}
+  session-prefix: ${SESSION_KEY_PREFIX:bhasha_setu:session}
+  gemini-api-key: ${GEMINI_API_KEY:}
+  gemini-model: ${GEMINI_MODEL:gemini-2.0-flash}
+  import-on-startup: ${IMPORT_ON_STARTUP:false}
+  import-overwrite: ${IMPORT_OVERWRITE:false}
+  dataset-directory: ${DATASET_DIRECTORY:../database}
