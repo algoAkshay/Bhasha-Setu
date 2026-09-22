@@ -1,0 +1,3 @@
+package com.bhashasetu.api;
+import java.util.*; import org.springframework.http.*; import org.springframework.web.bind.annotation.*;
+@RestControllerAdvice public class ApiExceptionHandler { @ExceptionHandler(IllegalArgumentException.class) ResponseEntity<Map<String,String>> validation(IllegalArgumentException e){return ResponseEntity.unprocessableEntity().body(Map.of("detail",e.getMessage()));} @ExceptionHandler(IllegalStateException.class) ResponseEntity<Map<String,String>> unavailable(IllegalStateException e){return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(Map.of("detail",e.getMessage()));} }

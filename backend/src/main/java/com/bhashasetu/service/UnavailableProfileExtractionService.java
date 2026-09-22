@@ -1,0 +1,2 @@
+package com.bhashasetu.service; import java.util.*; import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean; import org.springframework.stereotype.Service;
+@Service @ConditionalOnMissingBean(ProfileExtractionService.class) public class UnavailableProfileExtractionService implements ProfileExtractionService { public Map<String,Object> extract(String text,Map<String,Object> current,String question){throw new IllegalStateException("Profile extraction is not configured. Set GEMINI_API_KEY to enable conversation input.");}}
